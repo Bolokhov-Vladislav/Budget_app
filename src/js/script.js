@@ -10,9 +10,9 @@ let startBtn = document.getElementById("start"),
 
 
 	expensesItem = document.getElementsByClassName('expenses-item'),
-	expensesBtn = document.getElementsByTagName('button')[0],
-	optionalExpensesBtn = document.getElementsByTagName('button')[1],
-    countBtn = document.getElementsByTagName('button')[2],
+	expensesBtn = document.getElementsByTagName('button')[1],
+	optionalExpensesBtn = document.getElementsByTagName('button')[2],
+    countBtn = document.getElementsByTagName('button')[3],
     optionalExpensesItem = document.querySelectorAll('.optionalexpenses-item'),
 	incomeItem = document.querySelector('.choose-income'),
 	checkSavings = document.querySelector('#savings'),
@@ -74,6 +74,8 @@ optionalExpensesBtn.addEventListener('click', () => {
         
         appData.optionalExpenses[i] = opt;
         optionalExpensesValue.textContent += appData.optionalExpenses[i] + ' ';
+
+        optionalExpensesBtn.disabled = true;
 	}
 });
 
