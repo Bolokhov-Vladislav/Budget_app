@@ -1,18 +1,18 @@
 let startBtn = document.getElementById("start"),
-	budgetValue = document.getElementsByClassName('budget-value')[0],
-	dayBudgetValue = document.getElementsByClassName('daybudget-value')[0],
-	levelValue = document.getElementsByClassName('level-value')[0],
-	expensesValue = document.getElementsByClassName('expenses-value')[0],
-	optionalExpensesValue = document.getElementsByClassName('optionalexpenses-value')[0],
-	incomeValue = document.getElementsByClassName('income-value')[0],
-    monthSavingsValue = document.getElementsByClassName('monthsavings-value')[0],
-    yearSavingsValue = document.getElementsByClassName('yearsavings-value')[0],
+	budgetValue = document.querySelector('.budget-value'),
+	dayBudgetValue = document.querySelector('.daybudget-value'),
+	levelValue = document.querySelector('.level-value'),
+	expensesValue = document.querySelector('.expenses-value'),
+	optionalExpensesValue = document.querySelector('.optionalexpenses-value'),
+	incomeValue = document.querySelector('.income-value'),
+    monthSavingsValue = document.querySelector('.monthsavings-value'),
+    yearSavingsValue = document.querySelector('.yearsavings-value'),
 
 
-	expensesItem = document.getElementsByClassName('expenses-item'),
-	expensesBtn = document.getElementsByTagName('button')[1],
-	optionalExpensesBtn = document.getElementsByTagName('button')[2],
-    countBtn = document.getElementsByTagName('button')[3],
+	expensesItem = document.querySelectorAll('.expenses-item'),
+	expensesBtn = document.querySelectorAll('button')[1],
+	optionalExpensesBtn = document.querySelectorAll('button')[2],
+    countBtn = document.querySelectorAll('button')[3],
     optionalExpensesItem = document.querySelectorAll('.optionalexpenses-item'),
 	incomeItem = document.querySelector('.choose-income'),
 	checkSavings = document.querySelector('#savings'),
@@ -24,6 +24,7 @@ let startBtn = document.getElementById("start"),
 
 let money, time;
 
+console.log(expensesItem);
 //отключаем кнопки до моментка пока не будет нажата кнопка "Начать расчет"
 expensesBtn.disabled = true;
 optionalExpensesBtn.disabled = true;
@@ -33,9 +34,6 @@ startBtn.addEventListener('click', () => {
     time = prompt('Введите дату в формате YYYY-MM-DD', '');
     money = +prompt("Ваш бюджет на месяц?", '');
 
-    while (isNaN(money) || money == '' || money == null) {
-        money = prompt("Ваш бюджет?", "");
-    }
     appData.budget = money;
     appData.timeData = time;
     budgetValue.textContent = money.toFixed();
