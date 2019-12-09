@@ -24,8 +24,6 @@ let startBtn = document.getElementById("start"),
 
 let money, time;
 
-console.log(expensesItem);
-//отключаем кнопки до моментка пока не будет нажата кнопка "Начать расчет"
 expensesBtn.disabled = true;
 optionalExpensesBtn.disabled = true;
 countBtn.disabled = true;
@@ -41,7 +39,6 @@ startBtn.addEventListener('click', () => {
     monthValue.value = new Date(Date.parse(time)).getMonth() + 1;
     dayValue.value = new Date(Date.parse(time)).getDate();
 
-    //вкл кнопки 
     expensesBtn.disabled = false;
     optionalExpensesBtn.disabled = false;
     countBtn.disabled = false;
@@ -56,7 +53,7 @@ expensesBtn.addEventListener('click', () => {
             b = expensesItem[++i].value;
 
         if ((typeof (a)) != null && (typeof (b)) != null && a != '' && b != '' && a.length < 50) {
-            appData.expenses[a] = b;//присваиваем ключ - значение
+            appData.expenses[a] = b;
             sum = sum + (+b);
         } else {
             i = i - 1;
@@ -90,9 +87,7 @@ countBtn.addEventListener('click', () => {
             levelValue.textContent = 'Средний уровень достатка';
         } else if (appData.moneyPerDay > 2000) {
             levelValue.textContent = 'Высокий уровень достатка';
-        } else {
-            levelValue.textContent = 'Произошла ошибка';
-        }
+        } else {}
     } else {
         dayBudgetValue.textContent = 'Произошла ошибка';
     }
@@ -153,7 +148,3 @@ const appData = {
     savings: false
 };
 
-
-// for (let key in appData) {
-//     console.log("Наша программа включает в себя данные: " + key + " - " + appData[key]);
-// }
